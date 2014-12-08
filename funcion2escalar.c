@@ -44,17 +44,17 @@ int main(int argc, char *argv[]){
 	N = atoi(numero);
 	float vector[N];
 
-	for(i = 0; i < N;i++){
+	for(i = 0; i < N;i++){     //para inicializar el arreglo
         	vector[i] = i + 1;
     	}
 
     	float suma = 0;
     	
-	for(i = 0 ; i < N; i++){
-        	suma = suma+vector[i]*vector[i+1];
+	for(i = 0 ; i < N; i++){  //para realizar la operacion termino a termino
+        	suma = suma+vector[i]*vector[i+1];  //se suma cada elemento del arreglo multiplicando por su siguiente elemento
 
     	}
     
-	printf("%f\n",suma);
+	printf("%f\n",suma); //se imprime el resultado de suma
 	return 0;
 }
