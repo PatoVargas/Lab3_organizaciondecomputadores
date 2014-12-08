@@ -45,22 +45,22 @@ int main(int argc, char *argv[])
 	    }
         }
 	N = atoi(numero);
-    	float vector[N];
-   	for(i = 0; i < N; i++){
+    	float vector[N];		//vector de tamaño N
+   	for(i = 0; i < N; i++){		//para inicializar el vector
         	vector[i] = i + 1;
     	}
 
-    	printf("%f\n", calculo(N,vector));
+    	printf("%f\n", calculo(N,vector)); //llamada a la funcion calculo
     	return 0;
 }
 
-float calculo(int n,float *a){
-	float aux = 0;
+float calculo(int n,float *a){ //funcion para calcular la sumatoria la cual recibe el tamaño del arreglo y el arreglo
+	float aux = 0; 
 	int i;	
 	for(i =0 ; i< n; i++){
-        	aux = aux + pow(sqrt(a[i]),a[i]);
+        	aux = aux + pow(sqrt(a[i]),a[i]);	//calcula el valor de aux, sumando aux con la potencia de la raiz de cada elemento elevado al mismo elemento
 
   	}
-	return aux;
+	return aux; //retorna el valor de aux
 }
 
