@@ -49,24 +49,24 @@ int main(int argc, char *argv[]){
 	
 	char a[N];
 
-    	for(i = 0; i < N; i++){
+    	for(i = 0; i < N; i++){ //para inicializar el arreglo
         	a[i] = i % 120 + 1;
     	}
 
-    	printf("%d\n", calcular(N,a));
+    	printf("%d\n", calcular(N,a)); //llama a la funcion calcular e imprime el resultado
     
     	return 0;
 }
 
-int calcular(int n, char *a){
+int calcular(int n, char *a){ //funcion calcular que recive el tamaño del arreglo y el arreglo a
 	int i;    	
 	int acc = 0;
 
     	for(i = 0; i < n - 1; i++){
-       		char tmp = a[i] ^ a[i + 1];
-       		acc = acc + tmp;
+       		char tmp = a[i] ^ a[i + 1]; //calcula tmp, se realiza el XOR entre el elemento i e i+1 del arreglo
+       		acc = acc + tmp; //suma acc + tmp
     	}
 
-    	return acc;
+    	return acc; //retorna acc
 }
 
