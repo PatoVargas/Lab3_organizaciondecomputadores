@@ -48,30 +48,32 @@ int main(int argc, char *argv[]){
     	float b[N];	
 	printf("N = %i\n",N);
 
-    	for(i = 0; i < N; i++){
+    	for(i = 0; i < N; i++){ //se inicializa el arreglo a
         	a[i] = i + 1;
     	}
 
-    	for(i = 0; i < N; i++){
+    	for(i = 0; i < N; i++){	//se inicializa el arreglo b
         	b[i] = i + 1;
     	}
 
-    	printf("%f\n", calcular(N, a, b));
+    	printf("%f\n", calcular(N, a, b)); //imprime el resultado final
     	return 0;
 }
 
-float calcular(int n,float *a, float *b){
+float calcular(int n,float *a, float *b){  //funcion calcular que recibe el tamaño del arreglo, y los arreglos a y b
 	int i;
     	float acc = 0;
     	float acc2 = 0;
 
-    	for(i = 0; i < n; i++){
-        	acc = acc + a[i] / 2 + sqrt(b[i]);
+    	for(i = 0; i < n; i++){				
+        	acc = acc + a[i] / 2 + sqrt(b[i]);//calcula el valor de acc, sumando los elementos del arreglo a divido en 2,
+        					  //más la raiz cuadrada de los elementos del arreglo b
     	}
 
     	for(i = 0; i < n; i++){
-        	acc2 = acc2 + pow(a[i], 2) - acc;
+        	acc2 = acc2 + pow(a[i], 2) - acc;//calcula el valor de acc2, sumando los elementos del arreglo a elevado a 2,
+        					 //menos el resultado de acc obtenido en la primera sumatoria
     	}
 
-    	return acc2;
+    	return acc2;		//devuelve el resultado de acc2
 }
