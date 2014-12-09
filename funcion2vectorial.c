@@ -61,7 +61,7 @@ int main(int argc, char *argv[])
     	    __m128 v3;
 	
     	    v = _mm_mul_ps(v,v+1); //se realiza la multiplcación entre el vector v y v+1
-    	    v3 = v2+1		//se le asigna a v3 el valor de v2+1
+    	    v3 = v2+1;		//se le asigna a v3 el valor de v2+1
     	    v3[3] = 0;		//se le asigna a la ultima posición del vector v3 el valor de 0	
 	    v2 = _mm_mul_ps(v2,v3);		//se realiza la multiplicacion entre el vector v2 y v3
             acc = _mm_add_ps(acc,_mm_add_ps(v,v2));	//se realiza la suma del vector v y v2
