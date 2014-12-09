@@ -1,6 +1,6 @@
 # makefile para las funciones 
 
-all : f1e f2e f3e f4e f1v f2v
+all : f1e f2e f3e f4e f1v f2v f3v
 .PHONY : all
 
 f1e : funcion1escalar.o 
@@ -21,6 +21,9 @@ f1v : funcion1vectorial.o
 f2v : funcion2vectorial.o
 	cc -o f2v funcion2vectorial.o 
 
+f3v : funcion3vectorial.o
+	cc -o f3v funcion3vectorial.o 
+
 funcion1escalar.o : funcion1escalar.c 
 		cc -c funcion1escalar.c
 
@@ -38,7 +41,10 @@ funcion1vectorial.o : funcion1vectorial.c
 
 funcion2vectorial.o : funcion2vectorial.c 
 		cc -std=gnu99  -c funcion2vectorial.c -msse -msse2 -msse3
+		
+funcion3vectorial.o : funcion3vectorial.c 
+		cc -std=gnu99  -c funcion3vectorial.c -msse -msse2 -msse3
 
 clean: 
-	rm f1e f2e f3e f4e f1v f2v funcion1escalar.o funcion2escalar.o \
-	funcion3escalar.o funcion4escalar.o funcion1vectorial.o funcion2vectorial.o
+	rm f1e f2e f3e f4e f1v f2v f3v funcion1escalar.o funcion2escalar.o \
+	funcion3escalar.o funcion4escalar.o funcion1vectorial.o funcion2vectorial.o funcion3vectorial.o
