@@ -54,19 +54,22 @@ int main(int argc, char *argv[])
     	}
 
     	__m128 acc;
-
+    	
     	for(size_t i = 0; i < N; i = i + 8){
-    	    __m128 v = _mm_load_ps(&a[i]);
-    	    __m128 v2 = _mm_load_ps(&a[i + 4]);
+    	    __m128 v = _mm_load_ps(&a[i]);	//se cargan los 4 primeros datos del arreglo en el vector v
+    	    __m128 v2 = _mm_load_ps(&a[i + 4]); //se cargan los siguientes 4 datos del arreglo en el vector v2
+    	    __m128 v3;
 	
-    	    v = _mm_mul_ps(v,v+1);
-	    v2 = _mm_mul_ps(v2,v2+1);
-            acc = _mm_add_ps(acc,_mm_add_ps(v,v2));
+    	    v = _mm_mul_ps(v,v+1); //se realiza la multiplcación entre el vector v y v+1
+    	    v3 = v2+1		//se le asigna a v3 el valor de v2+1
+    	    v3[3] = 0;		//se le asigna a la ultima posición del vector v3 el valor de 0	
+	    v2 = _mm_mul_ps(v2,v3);		//se realiza la multiplicacion entre el vector v2 y v3
+            acc = _mm_add_ps(acc,_mm_add_ps(v,v2));	//se realiza la suma del vector v y v2
     	}
 
-    	_mm_store_ps(a, acc);
+    	_mm_store_ps(a, acc);	//se pasan los resultados del vector acc al arreglo a
 	
-    	printf("%f\n", a[0] + a[1] + a[2] + a[3]);
+    	printf("%f\n", a[0] + a[1] + a[2] + a[3]);	//se imprime la suma de los valores de las 4 posiciones del arreglo a
 
     	return 0;
 }
