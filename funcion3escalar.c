@@ -75,5 +75,5 @@ float calcular(int n,float *a, float *b){  //funcion calcular que recibe el tama
         					 //menos el resultado de acc obtenido en la primera sumatoria
     	}
 
-    	return acc2;		//devuelve el resultado de acc2
+    	return acc2;		//retorna el resultado de acc2
 }
